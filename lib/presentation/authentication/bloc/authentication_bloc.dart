@@ -1,12 +1,11 @@
 import 'dart:async';
 
-import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_ecomerce_ui/common/navigator_service/navigator_service.dart';
-import 'package:flutter_ecomerce_ui/config/show_snackbar.dart';
+
 import 'package:flutter_ecomerce_ui/data_layer/models/models.dart';
 import 'package:flutter_ecomerce_ui/data_layer/repository/auth/auth_repo_imlp.dart';
-import 'package:flutter_ecomerce_ui/data_layer/repository/auth/authentication_respository.dart';
+
 import 'package:flutter_ecomerce_ui/presentation/Widgets/show_exception.dart';
 import 'package:flutter_ecomerce_ui/presentation/authentication/bloc/authentication_events.dart';
 import 'package:flutter_ecomerce_ui/presentation/authentication/bloc/authentication_states.dart';

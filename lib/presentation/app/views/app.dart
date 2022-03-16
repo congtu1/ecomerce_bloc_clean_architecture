@@ -1,17 +1,15 @@
 import 'package:flow_builder/flow_builder.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_ecomerce_ui/common/injector/injector.dart';
 import 'package:flutter_ecomerce_ui/common/navigator_service/navigator_service.dart';
-import 'package:flutter_ecomerce_ui/data_layer/datasuorce/remote/auth/auth_provider.dart';
 import 'package:flutter_ecomerce_ui/data_layer/repository/auth/auth_repo_imlp.dart';
-import 'package:flutter_ecomerce_ui/data_layer/repository/auth/authentication_respository.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_ecomerce_ui/main.dart';
 import 'package:flutter_ecomerce_ui/presentation/authentication/bloc/authentication_bloc.dart';
 import 'package:flutter_ecomerce_ui/presentation/authentication/bloc/authentication_states.dart';
 import 'package:flutter_ecomerce_ui/presentation/home/view/home_page.dart';
-import 'package:bloc/bloc.dart';
-import 'package:flutter_ecomerce_ui/presentation/login/views/authentication_signin_page.dart';
 import 'package:flutter_ecomerce_ui/presentation/splash/splash_page.dart';
+
+import '../../login_register/views/login_page.dart';
 
 class App extends StatelessWidget {
   const App({
@@ -20,19 +18,14 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MultiRepositoryProvider(
-        providers: [
-          RepositoryProvider<AuthRepoImpl>(create: (context) => AuthRepoImpl())
-        ],
-        child: MultiBlocProvider(
-          providers: [
-            BlocProvider<AuthenticationBloc>(
-                create: (context) => AuthenticationBloc(
-                    authenticationRepository:
-                        RepositoryProvider.of<AuthRepoImpl>(context)))
-          ],
-          child: AppView(),
-        ));
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<AuthenticationBloc>(
+            create: (context) => AuthenticationBloc(
+                authenticationRepository:getIt.get<AuthRepoImpl>()))
+      ],
+      child: AppView(),
+    );
     // return RepositoryProvider.value(
     //   value: _authenticationRepository,
     //   child: BlocProvider(

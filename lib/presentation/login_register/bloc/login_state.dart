@@ -1,14 +1,15 @@
 import 'package:equatable/equatable.dart';
-import 'package:flutter_ecomerce_ui/presentation/login/model/email.dart';
-import 'package:flutter_ecomerce_ui/presentation/login/model/name.dart';
-import 'package:flutter_ecomerce_ui/presentation/login/model/password.dart';
+
 import 'package:formz/formz.dart';
+
+import '../model/models.dart';
 
 class LoginState extends Equatable {
   const LoginState({
     this.name = const Name.pure(),
     this.email = const Email.pure(),
     this.password = const Password.pure(),
+    this.confirmedPassword = const ConfirmedPassword.pure(),
     this.status = FormzStatus.pure,
     this.errorMessage,
   });
@@ -16,6 +17,7 @@ class LoginState extends Equatable {
   final Email email;
   final Name name;
   final Password password;
+  final ConfirmedPassword confirmedPassword;
   final FormzStatus status;
   final String? errorMessage;
 

@@ -12,6 +12,9 @@ class SecureStorageHelper {
     await storage!.write(key: 'accessToken', value: accessToken);
     await storage!.write(key: 'refreshToken', value: refreshToken);
   }
+  Future<void> deleteAll() async {
+    await storage!.deleteAll();
+  }
   Future<String?> getUserToken() async {
     String? value = await storage!.read(key: "refreshToken");
     return value;
