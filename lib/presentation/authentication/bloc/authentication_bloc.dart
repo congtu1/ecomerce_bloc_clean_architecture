@@ -40,12 +40,12 @@ class AuthenticationBloc extends Bloc<AuthenticationEvent,AuthenticationState> {
       case AuthenticationStatus.unauthenticated:
         return emit(const AuthenticationState.unauthenticated());
       case AuthenticationStatus.authenticated:
-        User ? user;
+        User? user;
         try {
           user = await _tryGetUser();
-        }
-        catch(e) {
-          showException(NavigationService.navigatorKey.currentContext, e.toString());
+        } catch (e) {
+          showException(
+              NavigationService.navigatorKey.currentContext, e.toString());
           user = User.empty;
         }
         return emit(user != User.empty
@@ -66,9 +66,7 @@ class AuthenticationBloc extends Bloc<AuthenticationEvent,AuthenticationState> {
 
   //Get current user
   Future<User?> _tryGetUser() async {
-      final user = await _authenticationRepository.getCurrentUser();
-      return user ?? User.empty;
-
-}
-
+    final user = await _authenticationRepository.getCurrentUser();
+    return user;
+  }
 }

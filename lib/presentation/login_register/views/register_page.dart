@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_ecomerce_ui/common/injector/injector.dart';
+import 'package:flutter_ecomerce_ui/data_layer/datasuorce/secure_storage_helper/secure_storage_helper.dart';
+import 'package:flutter_ecomerce_ui/presentation/login_register/widgets/register_button.dart';
+import 'package:flutter_ecomerce_ui/presentation/login_register/widgets/register_confirm_password.dart';
 import 'package:flutter_ecomerce_ui/presentation/login_register/widgets/regiter_name_input.dart';
 
 import 'package:formz/formz.dart';
@@ -10,6 +13,7 @@ import '../widgets/login_widget.dart';
 
 class RegisterPage extends StatelessWidget {
   const RegisterPage({Key? key}) : super(key: key);
+
   static Page page() => const MaterialPage<void>(child: RegisterPage());
 
   @override
@@ -35,8 +39,9 @@ class RegisterForm extends StatelessWidget {
     Key? key,
   }) : super(key: key);
 
-  void onRegister(BuildContext context) {
+  Function()? onRegister(BuildContext context) {
     context.read<LoginCubit>().register;
+    return null;
   }
 
   @override
@@ -60,7 +65,13 @@ class RegisterForm extends StatelessWidget {
           const NameInput(),
           const EmailInput(),
           PasswordInput(),
-          LoginButton(onPress: onRegister(context),)
+          RegisterConfirmPasswordInput(),
+          RegisterButton(),
+          TextButton(
+              onPressed: () async {
+                await getIt.get<SecureStorageHelper>().deleteAll();
+              },
+              child: const Text("Delete Key"))
         ],
       ),
     );

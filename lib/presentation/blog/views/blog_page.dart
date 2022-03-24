@@ -55,16 +55,14 @@ class BlogPage extends StatelessWidget {
                                       child: Container(
                                         height: 70,
                                         width: getProportionateScreenWidth(370),
-                                        decoration: BoxDecoration(
+                                        decoration: const BoxDecoration(
                                             gradient: LinearGradient(
                                                 begin: Alignment.bottomCenter,
                                                 end: Alignment.topCenter,
                                                 colors: [
-                                                  Colors.black,
-                                                  Colors.transparent
-                                                ]
-                                            )
-                                        ),
+                                              Colors.black,
+                                              Colors.transparent
+                                            ])),
                                       ),
                                     ),
                                     Positioned(

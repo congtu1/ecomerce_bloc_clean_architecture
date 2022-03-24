@@ -6,8 +6,6 @@ import 'package:flutter_ecomerce_ui/presentation/checkout/widgets/checkout_defau
 import 'package:flutter_ecomerce_ui/presentation/checkout/widgets/checkout_header.dart';
 import 'package:flutter_ecomerce_ui/presentation/checkout/widgets/checkout_list.dart';
 import 'package:flutter_ecomerce_ui/presentation/checkout/widgets/checkout_total_money.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class CheckoutPage extends StatelessWidget {
   const CheckoutPage({Key? key}) : super(key: key);

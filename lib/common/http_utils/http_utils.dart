@@ -24,17 +24,18 @@ class HttpUtils {
     return ExceptionConstants.somethingWentWrong;
   }
   static dynamic getResponse(Response? response) {
-    switch (response!.statusCode) {
+    print(response!.body.toString());
+    switch (response.statusCode) {
       case 200:
         final responseJson = json.decode(response.body);
-        return responseJson['data'];
+        return responseJson;
       case 201:
         throw Exception("Loi 201");
       case 204:
-        throw Exception("Loi 204");;
+        throw Exception("Loi 204");
       case 400:
         throw BadRequestException(
-          message:getErroredResult(json.decode(response.body)),
+          message: getErroredResult(json.decode(response.body)),
         );
       case 401:
         throw UnauthorisedException(

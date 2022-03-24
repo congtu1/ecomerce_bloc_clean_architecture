@@ -4,8 +4,6 @@ import 'package:flutter_ecomerce_ui/presentation/Widgets/appbar.dart';
 import 'package:flutter_ecomerce_ui/presentation/checkout/widgets/checkout_default_button.dart';
 import 'package:flutter_ecomerce_ui/presentation/checkout/widgets/checkout_header.dart';
 import 'package:flutter_ecomerce_ui/presentation/checkout/widgets/checkout_total_money.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 import '../../../config/theme_constants.dart';
 import '../../../config/cus_size.dart';

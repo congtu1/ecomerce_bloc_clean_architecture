@@ -4,8 +4,8 @@ import 'package:formz/formz.dart';
 
 import '../bloc/login_bloc.dart';
 
-class LoginButton extends StatelessWidget {
-  const LoginButton({
+class RegisterButton extends StatelessWidget {
+  const RegisterButton({
     Key? key,
   }) : super(key: key);
 
@@ -26,9 +26,9 @@ class LoginButton extends StatelessWidget {
                   primary: const Color(0xFFFFD600),
                 ),
                 onPressed: state.status.isValid
-                    ? () => context.read<LoginCubit>().login()
+                    ? () => context.read<LoginCubit>().register()
                     : () {},
-                child: const Text('LOGIN'),
+                child: const Text('Register'),
               );
       },
     );

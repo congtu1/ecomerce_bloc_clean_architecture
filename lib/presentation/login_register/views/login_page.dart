@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_ecomerce_ui/common/injector/injector.dart';
+import 'package:flutter_ecomerce_ui/presentation/login_register/views/register_page.dart';
 
 import 'package:formz/formz.dart';
 
@@ -34,10 +35,6 @@ class LoginForm extends StatelessWidget {
     Key? key,
   }) : super(key: key);
 
-  void onPress(BuildContext context) {
-    context.read<LoginCubit>().login();
-  }
-
   @override
   Widget build(BuildContext context) {
     return BlocListener<LoginCubit, LoginState>(
@@ -58,7 +55,15 @@ class LoginForm extends StatelessWidget {
         children: [
           const EmailInput(),
           PasswordInput(),
-           LoginButton(onPress: onPress(context),)
+          const LoginButton(),
+          TextButton(
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const RegisterPage()));
+              },
+              child: const Text("Register"))
         ],
       ),
     );

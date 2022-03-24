@@ -7,7 +7,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_ecomerce_ui/presentation/authentication/bloc/authentication_bloc.dart';
 import 'package:flutter_ecomerce_ui/presentation/authentication/bloc/authentication_states.dart';
 import 'package:flutter_ecomerce_ui/presentation/home/view/home_page.dart';
-import 'package:flutter_ecomerce_ui/presentation/splash/splash_page.dart';
 
 import '../../login_register/views/login_page.dart';
 
@@ -22,7 +21,7 @@ class App extends StatelessWidget {
       providers: [
         BlocProvider<AuthenticationBloc>(
             create: (context) => AuthenticationBloc(
-                authenticationRepository:getIt.get<AuthRepoImpl>()))
+                authenticationRepository: getIt.get<AuthRepoImpl>())),
       ],
       child: AppView(),
     );
@@ -56,7 +55,7 @@ List<Page> onGenerateAppViewPages(
     AuthenticationStatus state, List<Page<dynamic>> pages) {
   switch (state) {
     case AuthenticationStatus.unknown:
-      return [SplashPage.page()];
+      return [LoginPage.page()];
     case AuthenticationStatus.authenticated:
       return [HomePage.page()];
     case AuthenticationStatus.unauthenticated:
