@@ -24,7 +24,14 @@ class AuthProvider {
   }
 
   Future<User> currentUser() async {
-    var res = await httpClient.get("/currentUser");
-    return User.fromJson(res);
+    late User user;
+    try {
+      var res = await httpClient.get("/currentUser");
+      user = User.fromJson(res);
+    } catch (_) {
+      user = User.empty;
+    }
+
+    return user;
   }
 }

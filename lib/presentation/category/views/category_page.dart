@@ -24,10 +24,10 @@ class CategoryPage extends StatelessWidget {
                     "4500 APPAREL",
                     style: bodyLargeStyle,
                   ),
-                  Spacer(),
+                  const Spacer(),
                   Container(
-                    margin: EdgeInsets.symmetric(horizontal: 4),
-                    padding: EdgeInsets.all(8),
+                    margin: const EdgeInsets.symmetric(horizontal: 4),
+                    padding: const EdgeInsets.all(8),
                     decoration: BoxDecoration(
                         color: Colors.grey.withOpacity(0.2),
                         borderRadius: BorderRadius.circular(15)),
@@ -47,22 +47,22 @@ class CategoryPage extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    margin: EdgeInsets.symmetric(horizontal: 4),
-                    padding: EdgeInsets.all(8),
+                    margin: const EdgeInsets.symmetric(horizontal: 4),
+                    padding: const EdgeInsets.all(8),
                     decoration: BoxDecoration(
                         color: Colors.grey.withOpacity(0.2),
                         shape: BoxShape.circle),
-                    child: Center(
+                    child: const Center(
                       child: Icon(Icons.checklist),
                     ),
                   ),
                   Container(
-                    margin: EdgeInsets.symmetric(horizontal: 4),
-                    padding: EdgeInsets.all(8),
+                    margin: const EdgeInsets.symmetric(horizontal: 4),
+                    padding: const EdgeInsets.all(8),
                     decoration: BoxDecoration(
                         color: Colors.grey.withOpacity(0.2),
                         shape: BoxShape.circle),
-                    child: Center(
+                    child: const Center(
                       child: Icon(Icons.filter_list_outlined),
                     ),
                   )
@@ -72,7 +72,8 @@ class CategoryPage extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Column(
-                children: List.generate(10, (index) => CategoryListViewItem()),
+                children:
+                    List.generate(10, (index) => const CategoryListViewItem()),
               ),
             ),
             Padding(
@@ -81,15 +82,17 @@ class CategoryPage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: List.generate(4, (index) => Container(
                   width: 40,
-                  height: 40,
-                  margin: EdgeInsets.symmetric(horizontal: 10),
-                  decoration: BoxDecoration(
-                    color: Colors.grey.withOpacity(0.2)
-                  ),
-                  child: Center(
-                    child: Text("1",style: bodyLargeStyle,),
-                  ),
-                )),
+                          height: 40,
+                          margin: const EdgeInsets.symmetric(horizontal: 10),
+                          decoration: BoxDecoration(
+                              color: Colors.grey.withOpacity(0.2)),
+                          child: Center(
+                            child: Text(
+                              "1",
+                              style: bodyLargeStyle,
+                            ),
+                          ),
+                        )),
               ),
             )
             

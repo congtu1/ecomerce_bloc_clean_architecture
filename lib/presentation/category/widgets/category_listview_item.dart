@@ -10,7 +10,7 @@ class CategoryListViewItem extends StatelessWidget {
     return Container(
       width: getProportionateScreenWidth(375),
       height: 140.33,
-      margin: EdgeInsets.symmetric(vertical: 10),
+      margin: const EdgeInsets.symmetric(vertical: 10),
       child: Row(
         children: [
           Expanded(
@@ -36,7 +36,7 @@ class CategoryListViewItem extends StatelessWidget {
                 ),
                 Row(
                   children: [
-                    Icon(
+                    const Icon(
                       Icons.star,
                       color: Colors.orange,
                     ),
@@ -58,19 +58,24 @@ class CategoryListViewItem extends StatelessWidget {
                         return Container(
                           width: 25,
                           height: 25,
-                          margin: EdgeInsets.symmetric(horizontal: 5),
+                          margin: const EdgeInsets.symmetric(horizontal: 5),
                           decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            border: Border.all(width: 0.5)
-                          ),
+                              shape: BoxShape.circle,
+                              border: Border.all(width: 0.5)),
                           child: Center(
-                            child: Text(lists[index],style: bodySmallStyle,),
+                            child: Text(
+                              lists[index],
+                              style: bodySmallStyle,
+                            ),
                           ),
                         );
                       }),
                     ),
-                    Spacer(),
-                    Icon(Icons.favorite_border,color: Colors.redAccent,)
+                    const Spacer(),
+                    const Icon(
+                      Icons.favorite_border,
+                      color: Colors.redAccent,
+                    )
                   ],
                 )
               ],

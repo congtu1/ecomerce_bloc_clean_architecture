@@ -20,7 +20,6 @@ class HttpClients {
     Map<String, String> header = {};
     try {
       String authToken = getIt.get<HttpConstants>().getAuthValue.toString();
-
       if (authToken.isNotEmpty) {
         header.addAll({
           HttpConstants.contentType: HttpConstants.jsonContentType,

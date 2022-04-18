@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ecomerce_ui/presentation/Widgets/appbar.dart';
 
-import 'package:flutter_ecomerce_ui/presentation/checkout/widgets/checkout_default_button.dart';
+import 'package:flutter_ecomerce_ui/presentation/Widgets/checkout_default_button.dart';
 import 'package:flutter_ecomerce_ui/presentation/checkout/widgets/checkout_header.dart';
 import 'package:flutter_ecomerce_ui/presentation/checkout/widgets/checkout_total_money.dart';
 
@@ -102,11 +102,19 @@ class CheckoutInputInformation extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              "Pick at store",style: bodyLargeStyle,
+                              "Pick at store",
+                              style: bodyLargeStyle,
                             ),
-                            Spacer(),
-                            Text("FREE",style: bodyLargeStyle,),
-                            const Icon(Icons.arrow_drop_down,size: 25,color: Colors.grey,)
+                            const Spacer(),
+                            Text(
+                              "FREE",
+                              style: bodyLargeStyle,
+                            ),
+                            const Icon(
+                              Icons.arrow_drop_down,
+                              size: 25,
+                              color: Colors.grey,
+                            )
                           ],
                         ),
                       ),
@@ -131,7 +139,11 @@ class CheckoutInputInformation extends StatelessWidget {
                             Text(
                               "Select payment medthod",style: bodyLargeStyle,
                             ),
-                            const Icon(Icons.arrow_drop_down,size: 25,color: Colors.grey,)
+                            const Icon(
+                              Icons.arrow_drop_down,
+                              size: 25,
+                              color: Colors.grey,
+                            )
                           ],
                         ),
                       ),
@@ -140,8 +152,8 @@ class CheckoutInputInformation extends StatelessWidget {
                 ),
               ),
             ),
-            CheckoutTotalMoney(),
-            CheckoutDefaultButton(
+            const CheckoutTotalMoney(),
+            const BottomDefaultButton(
               icon: Icons.shopping_bag,
               text: "CHECKOUT",
             )

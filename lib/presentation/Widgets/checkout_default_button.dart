@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../../../config/cus_size.dart';
+import '../../config/cus_size.dart';
 
-class CheckoutDefaultButton extends StatelessWidget {
-  const CheckoutDefaultButton({
-    Key? key, required this.text, required this.icon,
+class BottomDefaultButton extends StatelessWidget {
+  const BottomDefaultButton({
+    Key? key,
+    required this.text,
+    required this.icon,
   }) : super(key: key);
 
   final String text;

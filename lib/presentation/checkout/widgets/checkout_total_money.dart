@@ -16,12 +16,18 @@ class CheckoutTotalMoney extends StatelessWidget {
     return Container(
       width: getProportionateScreenWidth(375),
       height: 56,
-      padding: EdgeInsets.symmetric(horizontal: 10),
+      padding: const EdgeInsets.symmetric(horizontal: 10),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text("EST. TOTAL",style: titleStyle,),
-          Text("\$240",style: titleStyle,)
+          Text(
+            "EST. TOTAL",
+            style: titleStyle,
+          ),
+          Text(
+            "\$240",
+            style: titleStyle,
+          )
         ],
       ),
     );

@@ -1,5 +1,9 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_ecomerce_ui/common/injector/injector.dart';
 import 'package:flutter_ecomerce_ui/domain/usescases/auth_usecases.dart';
+import 'package:flutter_ecomerce_ui/presentation/app/bloc/app_bloc.dart';
+import 'package:flutter_ecomerce_ui/presentation/app/bloc/app_event.dart';
+import 'package:flutter_ecomerce_ui/presentation/app/bloc/app_state.dart';
 import 'package:formz/formz.dart';
 
 import '../../../common/navigator_service/navigator_service.dart';
@@ -8,9 +12,9 @@ import '../model/models.dart';
 import 'login_bloc.dart';
 
 class LoginCubit extends Cubit<LoginState> {
-  LoginCubit(this._authUseCase) : super(const LoginState());
+  LoginCubit() : super(const LoginState());
 
-  final AuthUseCase _authUseCase;
+  final _authUseCase = getIt.get<AuthUseCase>();
 
   void nameChanged(String value) {
     final name = Name.dirty(value);
@@ -55,6 +59,7 @@ class LoginCubit extends Cubit<LoginState> {
         };
 
         await _authUseCase.signIn(data);
+        getIt.get<AppBloc>().add(AppEventNavigator(AppRoute.home));
       } catch (e) {
         showException(
             NavigationService.navigatorKey.currentContext, e.toString());
@@ -76,6 +81,7 @@ class LoginCubit extends Cubit<LoginState> {
         };
 
         await _authUseCase.register(data);
+        getIt.get<AppBloc>().add(AppEventNavigator(AppRoute.home));
       } catch (e) {
         emit(state.copyWith(
             status: FormzStatus.submissionFailure, errorMessage: e.toString()));

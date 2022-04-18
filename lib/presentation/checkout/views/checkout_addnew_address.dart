@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_ecomerce_ui/presentation/Widgets/appbar.dart';
-import 'package:flutter_ecomerce_ui/presentation/checkout/widgets/checkout_default_button.dart';
+import 'package:flutter_ecomerce_ui/presentation/Widgets/checkout_default_button.dart';
 import 'package:flutter_ecomerce_ui/presentation/checkout/widgets/checkout_header.dart';
-
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 import '../../../config/theme_constants.dart';
 import '../../../config/cus_size.dart';
@@ -34,7 +30,8 @@ class CheckoutAddNewAddress extends StatelessWidget {
                   Container(
                     height: 50,
                     width: getProportionateScreenWidth(375),
-                    margin: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+                    margin: const EdgeInsets.symmetric(
+                        horizontal: 15, vertical: 10),
                     child: Row(
                       children: [
                         Expanded(
@@ -67,7 +64,8 @@ class CheckoutAddNewAddress extends StatelessWidget {
                   Container(
                     height: 50,
                     width: getProportionateScreenWidth(375),
-                    margin: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+                    margin: const EdgeInsets.symmetric(
+                        horizontal: 15, vertical: 10),
                     child: Row(
                       children: [
                         Expanded(
@@ -100,7 +98,7 @@ class CheckoutAddNewAddress extends StatelessWidget {
                 ],
               ),
             ),
-            CheckoutDefaultButton(
+            const BottomDefaultButton(
               icon: Icons.location_on,
               text: "ADD NOW",
             )

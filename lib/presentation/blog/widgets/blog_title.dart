@@ -10,10 +10,10 @@ class BlogTitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(8),
+      padding: const EdgeInsets.all(8),
       child: Column(
         children: [
-          TitleText(text: "B L O G"),
+          const TitleText(text: "B L O G"),
           SvgPicture.asset("assets/images/divider.svg")
         ],
       ),

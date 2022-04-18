@@ -1,9 +1,9 @@
-import 'package:flutter_ecomerce_ui/data_layer/models/banner_model.dart';
+import 'package:flutter_ecomerce_ui/data_layer/models/models.dart';
 
 import '../../presentation/home/models/models.dart';
 
 abstract class ProductRepositories {
-  Future<List<Product>> fetchProduct();
+  Future<List<ProductModel>> fetchProduct();
 
   Future<List<Product>> fetchNewArrival();
 

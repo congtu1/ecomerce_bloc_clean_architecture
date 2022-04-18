@@ -24,8 +24,8 @@ class RegisterPage extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: BlocProvider(
-              create: (_) =>getIt.get<LoginCubit>(),
-              child: RegisterForm(),
+              create: (_) => getIt.get<LoginCubit>(),
+              child: const RegisterForm(),
             ),
           ),
         ),
@@ -39,10 +39,6 @@ class RegisterForm extends StatelessWidget {
     Key? key,
   }) : super(key: key);
 
-  Function()? onRegister(BuildContext context) {
-    context.read<LoginCubit>().register;
-    return null;
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -64,9 +60,9 @@ class RegisterForm extends StatelessWidget {
         children: [
           const NameInput(),
           const EmailInput(),
-          PasswordInput(),
-          RegisterConfirmPasswordInput(),
-          RegisterButton(),
+          const PasswordInput(),
+          const RegisterConfirmPasswordInput(),
+          const RegisterButton(),
           TextButton(
               onPressed: () async {
                 await getIt.get<SecureStorageHelper>().deleteAll();

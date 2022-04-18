@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ecomerce_ui/presentation/Widgets/appbar.dart';
 
-import 'package:flutter_ecomerce_ui/presentation/checkout/widgets/checkout_default_button.dart';
+import 'package:flutter_ecomerce_ui/presentation/Widgets/checkout_default_button.dart';
 import 'package:flutter_ecomerce_ui/presentation/checkout/widgets/checkout_header.dart';
 import 'package:flutter_ecomerce_ui/presentation/checkout/widgets/checkout_payment_card.dart';
 import 'package:flutter_ecomerce_ui/presentation/checkout/widgets/checkout_payment_success_dialog.dart';
@@ -50,21 +50,20 @@ class _CheckoutAddNewPaymentMethodState extends State<CheckoutAddNewPaymentMetho
                   title: "PAYMENT METHOD",
                 ),
                 Container(
-                  margin: EdgeInsets.symmetric(vertical: 5),
-                  height: 200,
-                  width: getProportionateScreenWidth(375),
-                  child: Column(
-                    children: [
-                      Expanded(
-                        child: PageView.builder(
-                          itemCount: 3,
-                          onPageChanged: _onPageChanged,
-                          controller: pageController,
-                          scrollDirection: Axis.horizontal,
-
-                          itemBuilder: (context, index) {
-                            return CheckoutPaymentCard();
-                          },
+                    margin: const EdgeInsets.symmetric(vertical: 5),
+                    height: 200,
+                    width: getProportionateScreenWidth(375),
+                    child: Column(
+                      children: [
+                        Expanded(
+                          child: PageView.builder(
+                            itemCount: 3,
+                            onPageChanged: _onPageChanged,
+                            controller: pageController,
+                            scrollDirection: Axis.horizontal,
+                            itemBuilder: (context, index) {
+                            return const CheckoutPaymentCard();
+                            },
                         ),
                       ),
                       Row(
@@ -76,8 +75,8 @@ class _CheckoutAddNewPaymentMethodState extends State<CheckoutAddNewPaymentMetho
                               child: Container(
                                 width: 5,
                                 height: 5,
-                                margin: EdgeInsets.symmetric(
-                                    horizontal: 10, vertical: 10),
+                                margin: const EdgeInsets.symmetric(
+                                          horizontal: 10, vertical: 10),
                                 decoration: BoxDecoration(
                                     border: Border.all(
                                         color: Colors.grey.withOpacity(0.2)),
@@ -102,12 +101,14 @@ class _CheckoutAddNewPaymentMethodState extends State<CheckoutAddNewPaymentMetho
                       Container(
                         height: 50,
                         width: getProportionateScreenWidth(375),
-                        margin: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+                        margin: const EdgeInsets.symmetric(
+                            horizontal: 15, vertical: 10),
                         child: Row(
                           children: [
                             Expanded(
                               child: Padding(
-                                padding: const EdgeInsets.symmetric(horizontal: 8),
+                                padding:
+                                    const EdgeInsets.symmetric(horizontal: 8),
                                 child: TextFormField(
                                   decoration: InputDecoration(
                                     hintText: "Exp Month",
@@ -138,7 +139,7 @@ class _CheckoutAddNewPaymentMethodState extends State<CheckoutAddNewPaymentMetho
                 ),
                 GestureDetector(
                   onTap: () => showPaymentSuccessDialog(context),
-                  child: const CheckoutDefaultButton(
+                  child: const BottomDefaultButton(
                     icon: Icons.location_on,
                     text: "ADD NOW",
                   ),

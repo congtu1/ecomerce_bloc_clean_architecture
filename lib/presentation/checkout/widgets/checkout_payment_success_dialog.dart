@@ -26,9 +26,7 @@ Future<void> showPaymentSuccessDialog(BuildContext context) async {
         Container(
           height: 48,
           width: getProportionateScreenWidth(90),
-          decoration: BoxDecoration(
-            color: Colors.black
-          ),
+          decoration: const BoxDecoration(color: Colors.black),
           child: Center(
             child: Text("SUBMIT",style: bodyLargeStyle,),
           ),

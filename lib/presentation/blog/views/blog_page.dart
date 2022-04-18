@@ -36,15 +36,15 @@ class BlogPage extends StatelessWidget {
                   (index1) => Container(
                         height: 231.67,
                         width: getProportionateScreenWidth(360),
-                        margin: EdgeInsets.symmetric(vertical: 10),
+                        margin: const EdgeInsets.symmetric(vertical: 10),
                         child: Column(
                           children: [
                             Expanded(
                               child: DecoratedBox(
-                                decoration:  BoxDecoration(
-
+                                decoration: BoxDecoration(
                                   image: DecorationImage(
-                                    image: AssetImage(listArticle[index1].image.toString()),
+                                    image: AssetImage(
+                                        listArticle[index1].image.toString()),
                                     fit: BoxFit.fill,
                                   ),
                                 ),
@@ -71,16 +71,17 @@ class BlogPage extends StatelessWidget {
                                         child: SizedBox(
                                           width: getProportionateScreenWidth(360),
                                           child: Text(
-                                      listArticle[index1].title,
-                                      style: bodyLargeStyle,
-                                    ),
+                                            listArticle[index1].title,
+                                            style: bodyLargeStyle,
+                                          ),
                                         )),
-
                                   ],
                                 ),
                               ),
                             ),
-                            SizedBox(height: 10,),
+                            const SizedBox(
+                              height: 10,
+                            ),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
@@ -91,9 +92,9 @@ class BlogPage extends StatelessWidget {
                                     var article =
                                         listArticle[index1].hashtag[index2];
                                     return Container(
-                                      padding: EdgeInsets.all(8),
-                                      margin:
-                                          EdgeInsets.symmetric(horizontal: 4),
+                                      padding: const EdgeInsets.all(8),
+                                      margin: const EdgeInsets.symmetric(
+                                          horizontal: 4),
                                       decoration: BoxDecoration(
                                           borderRadius:
                                               BorderRadius.circular(15),
@@ -118,7 +119,7 @@ class BlogPage extends StatelessWidget {
                         ),
                       )),
             ),
-            Container(
+            SizedBox(
               width: getProportionateScreenWidth(375),
               height: 100,
               child: Center(
@@ -127,15 +128,15 @@ class BlogPage extends StatelessWidget {
                   height: 48,
                   decoration: BoxDecoration(
                     border: Border.all(
-                        width: 0.5,
-                        color: Colors.grey.withOpacity(0.2)
-                    ),
+                        width: 0.5, color: Colors.grey.withOpacity(0.2)),
                   ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
+                    children: const [
                       Text("LOAD MORE"),
-                      Icon(Icons.add,)
+                      Icon(
+                        Icons.add,
+                      )
                     ],
                   ),
                 ),

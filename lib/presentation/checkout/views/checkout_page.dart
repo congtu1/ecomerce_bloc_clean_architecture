@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_ecomerce_ui/config/theme_constants.dart';
 import 'package:flutter_ecomerce_ui/config/cus_size.dart';
 import 'package:flutter_ecomerce_ui/presentation/Widgets/appbar.dart';
-import 'package:flutter_ecomerce_ui/presentation/checkout/widgets/checkout_default_button.dart';
+import 'package:flutter_ecomerce_ui/presentation/Widgets/checkout_default_button.dart';
 import 'package:flutter_ecomerce_ui/presentation/checkout/widgets/checkout_header.dart';
 import 'package:flutter_ecomerce_ui/presentation/checkout/widgets/checkout_list.dart';
 import 'package:flutter_ecomerce_ui/presentation/checkout/widgets/checkout_total_money.dart';
@@ -18,15 +18,19 @@ class CheckoutPage extends StatelessWidget {
       body: SafeArea(
         child: Column(
           children: [
-            const CheckoutHeader(title: "C H E C K O U T",),
-            CheckoutList(),
+            const CheckoutHeader(
+              title: "C H E C K O U T",
+            ),
+            const CheckoutList(),
             Container(
               height: 117.54,
               width: getProportionateScreenWidth(375),
               decoration: BoxDecoration(
                 border: Border(
-                  top: BorderSide(width: 1.0, color: Colors.grey.withOpacity(0.5)),
-                  bottom:BorderSide(width: 1.0, color: Colors.grey.withOpacity(0.5)),
+                  top: BorderSide(
+                      width: 1.0, color: Colors.grey.withOpacity(0.5)),
+                  bottom: BorderSide(
+                      width: 1.0, color: Colors.grey.withOpacity(0.5)),
                 ),
               ),
               child: Column(
@@ -37,10 +41,16 @@ class CheckoutPage extends StatelessWidget {
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        Icon(Icons.airplane_ticket,size: 30,),
+                        const Icon(
+                          Icons.airplane_ticket,
+                          size: 30,
+                        ),
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 10),
-                          child: Text("Add promocode",style: bodyLargeStyle,),
+                          child: Text(
+                            "Add promocode",
+                            style: bodyLargeStyle,
+                          ),
                         )
                       ],
                     ),
@@ -53,21 +63,30 @@ class CheckoutPage extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        Icon(Icons.car_rental,size: 30,),
+                        const Icon(
+                          Icons.car_rental,
+                          size: 30,
+                        ),
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 10),
-                          child: Text("Delivery",style: bodyLargeStyle,),
+                          child: Text(
+                            "Delivery",
+                            style: bodyLargeStyle,
+                          ),
                         ),
-                        Spacer(),
-                        Text("Free",style: bodyLargeStyle)
+                        const Spacer(),
+                        Text("Free", style: bodyLargeStyle)
                       ],
                     ),
                   ),
                 ],
               ),
             ),
-            CheckoutTotalMoney(),
-            CheckoutDefaultButton(icon: Icons.shopping_bag,text: "CHECKOUT",)
+            const CheckoutTotalMoney(),
+            const BottomDefaultButton(
+              icon: Icons.shopping_bag,
+              text: "CHECKOUT",
+            )
           ],
         ),
       ),

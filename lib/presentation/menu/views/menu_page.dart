@@ -29,7 +29,7 @@ class _MenuPageState extends State<MenuPage> with TickerProviderStateMixin {
         elevation: 0,
         backgroundColor: Colors.transparent,
         leading: IconButton(
-          icon: Icon(
+          icon: const Icon(
             Icons.arrow_back_ios,
             color: Colors.grey,
           ),
@@ -94,14 +94,26 @@ class _MenuPageState extends State<MenuPage> with TickerProviderStateMixin {
                 children: [
                   Row(
                     children: [
-                      Icon(Icons.phone,size: 40,),
-                      Text("(786) 713-8616",style: bodyLargeStyle,)
+                      const Icon(
+                        Icons.phone,
+                        size: 40,
+                      ),
+                      Text(
+                        "(786) 713-8616",
+                        style: bodyLargeStyle,
+                      )
                     ],
                   ),
                   Row(
                     children: [
-                      Icon(Icons.location_on,size: 40,),
-                      Text("Store Locator",style: bodyLargeStyle,)
+                      const Icon(
+                        Icons.location_on,
+                        size: 40,
+                      ),
+                      Text(
+                        "Store Locator",
+                        style: bodyLargeStyle,
+                      )
                     ],
                   )
                 ],

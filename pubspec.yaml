@@ -46,6 +46,10 @@ dependencies:
   flow_builder:
     git: https://github.com/felangel/flow_builder
   get_it: ^7.2.0
+  sqflite: ^2.0.2
+  path: ^1.8.1
+  path_provider: ^2.0.9
+  rxdart: ^0.27.3
 
 
 dev_dependencies:

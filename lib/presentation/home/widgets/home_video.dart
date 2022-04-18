@@ -13,17 +13,16 @@ class HomeVideo extends StatelessWidget {
     return Container(
         height: 176,
         width: getProportionateScreenWidth(375),
-        decoration: BoxDecoration(
-            image: DecorationImage(
-                image: AssetImage("assets/images/video.png"))),
+        decoration: const BoxDecoration(
+            image:
+                DecorationImage(image: AssetImage("assets/images/video.png"))),
         child: Center(
           child: Container(
               width: 40,
               height: 40,
               decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: Colors.black.withOpacity(0.2)),
-              child: Icon(Icons.play_arrow)),
+                  shape: BoxShape.circle, color: Colors.black.withOpacity(0.2)),
+              child: const Icon(Icons.play_arrow)),
         ));
   }
 }

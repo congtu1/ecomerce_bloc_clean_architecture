@@ -13,12 +13,13 @@ class ProductProvider {
 
   Future<List<ProductModel>> fetchAllProduct() async {
     List<ProductModel> listProduct = [];
-    Response res = await httpClient.get("/getAllProduct");
-    var rawData = json.decode(res.body);
-    for (var item in rawData) {
-      var product = ProductModel.fromJson(item);
-      listProduct.add(product);
-    }
+    try {
+      var res = await httpClient.get("/product/getAllProduct");
+      for (var item in res) {
+        var product = ProductModel.fromJson(item);
+        listProduct.add(product);
+      }
+    } catch (_) {}
     return listProduct;
   }
 

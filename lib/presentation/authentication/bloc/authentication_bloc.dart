@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_ecomerce_ui/common/injector/injector.dart';
 import 'package:flutter_ecomerce_ui/common/navigator_service/navigator_service.dart';
 
 import 'package:flutter_ecomerce_ui/data_layer/models/models.dart';

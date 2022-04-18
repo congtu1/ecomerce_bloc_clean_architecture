@@ -24,8 +24,7 @@ class HttpUtils {
     return ExceptionConstants.somethingWentWrong;
   }
   static dynamic getResponse(Response? response) {
-    print(response!.body.toString());
-    switch (response.statusCode) {
+    switch (response!.statusCode) {
       case 200:
         final responseJson = json.decode(response.body);
         return responseJson;
@@ -46,7 +45,7 @@ class HttpUtils {
           message: getErroredResult(json.decode(response.body)),
         );
       case 500:
-        throw Exception("Loi 500");
+        throw Exception(json.decode(response.body).toString());
       default:
         throw ServerErrorException(
           getErroredResult(json.decode(response.body)),

@@ -8,15 +8,10 @@ part 'product_model.g.dart';
 class ProductModel extends ProductEntity implements Equatable {
   ProductModel(
       {required int id,
-      required int idShop,
-      required int idCategory,
       required String name,
-      required String description,
-      required double price,
-      required String thumbnail,
-      required String image})
-      : super(
-            id, idShop, idCategory, name, description, price, thumbnail, image);
+      required String image,
+      required double price})
+      : super(id, name, image, price);
 
   factory ProductModel.fromJson(Map<String, dynamic> json) =>
       _$ProductModelFromJson(json);
@@ -25,8 +20,7 @@ class ProductModel extends ProductEntity implements Equatable {
 
   @override
   // TODO: implement props
-  List<Object?> get props =>
-      [id, idShop, idCategory, name, description, price, thumbnail, image];
+  List<Object?> get props => [id, name, image, price];
 
   @override
   // TODO: implement stringify

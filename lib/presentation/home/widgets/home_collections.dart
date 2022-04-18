@@ -16,7 +16,7 @@ class HomeCollections extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          TitleText(text: "COLLECTIONS"),
+          const TitleText(text: "COLLECTIONS"),
           Image.asset("assets/images/collection1.png"),
           Image.asset("assets/images/collection2.png")
         ],

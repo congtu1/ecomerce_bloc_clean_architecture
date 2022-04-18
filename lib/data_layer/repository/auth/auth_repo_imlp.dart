@@ -14,8 +14,9 @@ class AuthRepoImpl extends AuthRepository {
   final SecureStorageHelper secureStorageHelper = SecureStorageHelper();
 
   Stream<AuthenticationStatus> get status async* {
-    String? token = await secureStorageHelper.getUserToken();
-    if (token != null && token.isNotEmpty) {
+    User user = await getCurrentUser();
+    if (user.isNotEmpty) {
+      print(user.toString());
       yield AuthenticationStatus.authenticated;
     } else {
       yield AuthenticationStatus.unauthenticated;
@@ -52,8 +53,8 @@ class AuthRepoImpl extends AuthRepository {
     _controller.add(AuthenticationStatus.unauthenticated);
   }
 
-  Future<User?> getCurrentUser() async {
-    User? user = await authProvider.currentUser();
+  Future<User> getCurrentUser() async {
+    User user = await authProvider.currentUser();
     return user;
   }
 

@@ -2,5 +2,8 @@
  import 'package:flutter/material.dart';
 
 dynamic showException(context, content) {
-  return ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(content.toString()),duration: Duration(seconds: 10),));
- }
+  return ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+    content: Text(content.toString()),
+    duration: const Duration(seconds: 10),
+  ));
+}

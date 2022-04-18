@@ -9,11 +9,13 @@ class BannerProvider {
 
   Future<List<BannerModel>> fetchBanner() async {
     List<BannerModel> listBanner = [];
-    var res = await httpClient.get(HttpApiGoal.getBanner);
-    for (var item in res) {
-      var banner = BannerModel.fromJson(item);
-      listBanner.add(banner);
-    }
+    try {
+      var res = await httpClient.get(HttpApiGoal.getBanner);
+      for (var item in res) {
+        var banner = BannerModel.fromJson(item);
+        listBanner.add(banner);
+      }
+    } catch (_) {}
     return listBanner;
   }
 }

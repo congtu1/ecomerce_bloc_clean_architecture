@@ -35,14 +35,16 @@ class BlogHashTagItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(8),
-      margin: EdgeInsets.symmetric(horizontal: 8),
+      padding: const EdgeInsets.all(8),
+      margin: const EdgeInsets.symmetric(horizontal: 8),
       decoration: BoxDecoration(
           color: Colors.grey.withOpacity(0.2),
-          borderRadius: BorderRadius.circular(20)
-      ),
+          borderRadius: BorderRadius.circular(20)),
       child: Center(
-        child: Text(listHashTag[index],style: bodyMediumStyle,),
+        child: Text(
+          listHashTag[index],
+          style: bodyMediumStyle,
+        ),
       ),
     );
   }

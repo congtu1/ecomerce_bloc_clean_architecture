@@ -26,11 +26,11 @@ class HomeBrand extends StatelessWidget {
           Expanded(
               child: GridView.count(
                 crossAxisCount: 3,
-                physics: NeverScrollableScrollPhysics(),
-                childAspectRatio: 2,
-                children: List.generate(listBrand.length,
-                        (index) => Image.asset(listBrand[index])),
-              )),
+            physics: const NeverScrollableScrollPhysics(),
+            childAspectRatio: 2,
+            children: List.generate(
+                listBrand.length, (index) => Image.asset(listBrand[index])),
+          )),
           SvgPicture.asset("assets/images/divider.svg"),
           const SizedBox(
             height: 27,

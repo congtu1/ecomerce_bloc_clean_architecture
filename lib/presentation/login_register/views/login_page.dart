@@ -20,8 +20,8 @@ class LoginPage extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: BlocProvider(
-              create: (_) =>getIt.get<LoginCubit>(),
-              child: LoginForm(),
+              create: (_) => getIt.get<LoginCubit>(),
+              child: const LoginForm(),
             ),
           ),
         ),
@@ -54,7 +54,7 @@ class LoginForm extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           const EmailInput(),
-          PasswordInput(),
+          const PasswordInput(),
           const LoginButton(),
           TextButton(
               onPressed: () {

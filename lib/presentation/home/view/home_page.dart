@@ -1,26 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_ecomerce_ui/common/injector/injector.dart';
 import 'package:flutter_ecomerce_ui/config/theme_constants.dart';
 import 'package:flutter_ecomerce_ui/config/cus_size.dart';
 import 'package:flutter_ecomerce_ui/presentation/Widgets/appbar.dart';
+import 'package:flutter_ecomerce_ui/presentation/authentication/bloc/authentication_bloc.dart';
 import 'package:flutter_ecomerce_ui/presentation/home/bloc/home_bloc.dart';
-import 'package:flutter_ecomerce_ui/presentation/home/bloc/home_event.dart';
-import 'package:flutter_ecomerce_ui/presentation/home/widgets/home_arrival.dart';
-import 'package:flutter_ecomerce_ui/presentation/home/widgets/home_banner.dart';
-import 'package:flutter_ecomerce_ui/presentation/home/widgets/home_brand.dart';
-import 'package:flutter_ecomerce_ui/presentation/home/widgets/home_collections.dart';
-import 'package:flutter_ecomerce_ui/presentation/home/widgets/home_justforyou.dart';
-import 'package:flutter_ecomerce_ui/presentation/home/widgets/home_trending.dart';
-import 'package:flutter_ecomerce_ui/presentation/home/widgets/home_video.dart';
+
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../bloc/home_event.dart';
 import '../utils.dart';
+import '../widgets/home_widgets.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
-  static Page page() => MaterialPage<void>(child: HomePage());
+  static Page page() => const MaterialPage<void>(child: HomePage());
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -56,6 +53,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
+    print("AAAA :" + getIt.get<AuthenticationBloc>().state.status.toString());
     CustomSize().init(context);
     return Scaffold(
       appBar: AppBarEx(),
@@ -74,22 +72,22 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                 height: 22,
               ),
               HomeBrand(listBrand: listBrand),
-              HomeCollections(),
-              HomeVideo(),
-              SizedBox(
+              const HomeCollections(),
+              const HomeVideo(),
+              const SizedBox(
                 height: 49,
               ),
-              HomeJustForYou(),
-              SizedBox(
-                height: 20,
-              ),
-              HomeTrending(listTrending: listTrending),
-              SizedBox(
-                height: 20,
-                child: Column(
-                  children: [],
-                ),
-              ),
+              // const HomeJustForYou(),
+              // const SizedBox(
+              //   height: 20,
+              // ),
+              // HomeTrending(listTrending: listTrending),
+              // SizedBox(
+              //   height: 20,
+              //   child: Column(
+              //     children: [],
+              //   ),
+              // ),
               DecoratedBox(
                 decoration: BoxDecoration(color: Colors.grey.withOpacity(0.1)),
                 child: Column(
@@ -107,18 +105,18 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                       child: Text(
                         "Making a luxurious lifestyle accessible for a generous group of women is our daily drive.",
                         style: GoogleFonts.tenorSans(
-                            fontSize: 16, color: Color(0xFF727272)),
+                            fontSize: 16, color: const Color(0xFF727272)),
                         textAlign: TextAlign.center,
                       ),
                     ),
                     SvgPicture.asset("assets/images/divider.svg"),
                     Container(
                       height: 233,
-                      padding: EdgeInsets.all(20),
+                      padding: const EdgeInsets.all(20),
                       child: GridView.count(
                         crossAxisCount: 2,
                         childAspectRatio: 1.5,
-                        physics: NeverScrollableScrollPhysics(),
+                        physics: const NeverScrollableScrollPhysics(),
                         children: List.generate(
                             listIntroduction.length,
                             (index) => Column(

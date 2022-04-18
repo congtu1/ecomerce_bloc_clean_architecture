@@ -19,16 +19,22 @@ class CheckoutPaymentCard extends StatelessWidget {
         children: [
           Row(
             children: [
-              Spacer(),
+              const Spacer(),
               Image.asset("assets/images/MasterCard.png")
             ],
           ),
-          Spacer(),
+          const Spacer(),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text("Iris Watson",style: bodyLargeStyle,),
-              Text("03/25",style: bodyLargeStyle,)
+              Text(
+                "Iris Watson",
+                style: bodyLargeStyle,
+              ),
+              Text(
+                "03/25",
+                style: bodyLargeStyle,
+              )
             ],
           )
         ],
