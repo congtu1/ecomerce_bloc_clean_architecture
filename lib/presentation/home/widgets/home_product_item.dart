@@ -19,7 +19,7 @@ class HomeProductItem extends StatelessWidget {
       onTap: () {
         return getIt
             .get<AppBloc>()
-            .add(AppEventNavigator(AppRoute.productDetail, product));
+            .add(AppRoutePush(AppRoute.productDetail, product));
       },
       child: Column(
         // mainAxisSize: MainAxisSize.min,

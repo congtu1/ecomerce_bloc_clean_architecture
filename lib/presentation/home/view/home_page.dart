@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_ecomerce_ui/common/injector/injector.dart';
 import 'package:flutter_ecomerce_ui/config/theme_constants.dart';
 import 'package:flutter_ecomerce_ui/config/cus_size.dart';
 import 'package:flutter_ecomerce_ui/presentation/Widgets/appbar.dart';
-import 'package:flutter_ecomerce_ui/presentation/authentication/bloc/authentication_bloc.dart';
 import 'package:flutter_ecomerce_ui/presentation/home/bloc/home_bloc.dart';
 
 import 'package:flutter_svg/flutter_svg.dart';
@@ -53,7 +51,6 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    print("AAAA :" + getIt.get<AuthenticationBloc>().state.status.toString());
     CustomSize().init(context);
     return Scaffold(
       appBar: AppBarEx(),

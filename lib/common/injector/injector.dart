@@ -17,6 +17,7 @@ import 'package:flutter_ecomerce_ui/domain/usescases/cart_usecase.dart';
 import 'package:flutter_ecomerce_ui/domain/usescases/product_usecase.dart';
 import 'package:flutter_ecomerce_ui/presentation/app/bloc/app_bloc.dart';
 import 'package:flutter_ecomerce_ui/presentation/authentication/bloc/authentication_bloc.dart';
+import 'package:flutter_ecomerce_ui/presentation/cart/bloc/cart_bloc.dart';
 import 'package:flutter_ecomerce_ui/presentation/login_register/bloc/login_bloc.dart';
 import 'package:get_it/get_it.dart';
 import 'package:http/http.dart';
@@ -56,4 +57,5 @@ Future<void> setup() async {
 
   //F Bloc
   getIt.registerFactory<LoginCubit>(() => LoginCubit());
+  getIt.registerSingleton<CartBloc>(CartBloc());
 }

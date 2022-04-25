@@ -8,14 +8,15 @@ class SecureStorageHelper {
   static final SecureStorageHelper _instance = SecureStorageHelper._internal();
   factory SecureStorageHelper() => _instance;
 
-  Future<void> storeToken(String accessToken, refreshToken) async{
+  Future<void> storeToken(String accessToken, refreshToken) async {
     await storage!.write(key: 'accessToken', value: accessToken);
     await storage!.write(key: 'refreshToken', value: refreshToken);
   }
+
   Future<void> deleteAll() async {
     await storage!.deleteAll();
-    print("Delete all");
   }
+
   Future<String?> getUserToken() async {
     String? value = await storage!.read(key: "accessToken");
     return value;

@@ -4,11 +4,14 @@ import 'package:flutter_ecomerce_ui/common/injector/injector.dart';
 import 'package:flutter_ecomerce_ui/common/navigator_service/navigator_service.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_ecomerce_ui/presentation/app/bloc/app_bloc.dart';
+import 'package:flutter_ecomerce_ui/presentation/app/bloc/app_event.dart';
 import 'package:flutter_ecomerce_ui/presentation/app/bloc/app_state.dart';
 import 'package:flutter_ecomerce_ui/presentation/authentication/bloc/authentication_bloc.dart';
+import 'package:flutter_ecomerce_ui/presentation/cart/bloc/cart_bloc.dart';
 import 'package:flutter_ecomerce_ui/presentation/cart/view/cart_page.dart';
 import 'package:flutter_ecomerce_ui/presentation/home/view/home_page.dart';
 import 'package:flutter_ecomerce_ui/presentation/login_register/views/register_page.dart';
+import 'package:flutter_ecomerce_ui/presentation/menu/views/menu_page.dart';
 import 'package:flutter_ecomerce_ui/presentation/product_detail/views/productdetail_page.dart';
 import 'package:flutter_ecomerce_ui/presentation/splash/splash_page.dart';
 
@@ -26,6 +29,9 @@ class App extends StatelessWidget {
         BlocProvider<AuthenticationBloc>(
             create: (context) => getIt.get<AuthenticationBloc>()),
         BlocProvider(create: (context) => getIt.get<AppBloc>()),
+        BlocProvider(
+            create: (context) =>
+                getIt.get<CartBloc>()..add(const CartSubscriptionRequest())),
       ],
       child: const AppView(),
     );
@@ -35,14 +41,19 @@ class App extends StatelessWidget {
 class AppView extends StatelessWidget {
   const AppView({Key? key}) : super(key: key);
 
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       navigatorKey: NavigationService.navigatorKey,
-      home: FlowBuilder<AppState>(
-        state: context.select((AppBloc bloc) => bloc.state),
-        onGeneratePages: onGenerateAppViewPages,
+      home: WillPopScope(
+        onWillPop: () {
+          context.read<AppBloc>().add(AppRoutePop());
+          return Future.value(false);
+        },
+        child: FlowBuilder<AppState>(
+          state: context.select((AppBloc bloc) => bloc.state),
+          onGeneratePages: onGenerateAppViewPages,
+        ),
       ),
     );
   }
@@ -50,7 +61,7 @@ class AppView extends StatelessWidget {
 
 List<Page> onGenerateAppViewPages(AppState state, List<Page<dynamic>> pages) {
   List<Page> pages = [];
-  switch (state.route.name) {
+  switch (state.listRoute.last.name) {
     case "splash":
       return pages = [SplashPage.page()];
     case "home":
@@ -65,6 +76,8 @@ List<Page> onGenerateAppViewPages(AppState state, List<Page<dynamic>> pages) {
       return pages = [ProductDetailPage.page()];
     case "cart":
       return pages = [CartPage.page()];
+    case "menu":
+      return pages = [MenuPage.page()];
   }
   return pages;
 }

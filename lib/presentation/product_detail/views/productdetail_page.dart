@@ -53,7 +53,6 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
 
   @override
   Widget build(BuildContext context) {
-    print(product.toString());
     CustomSize().init(context);
     return Scaffold(
       appBar: AppBarEx(),

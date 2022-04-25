@@ -1,21 +1,28 @@
 import 'package:equatable/equatable.dart';
 
-enum AppRoute { splash, home, login, register, productDetail, cart, initial }
+enum AppRoute {
+  splash,
+  home,
+  login,
+  register,
+  productDetail,
+  cart,
+  menu,
+  initial
+}
 
 class AppState extends Equatable {
-  const AppState({required this.route, this.parameter});
+  const AppState({this.parameter, required this.listRoute});
 
-  final AppRoute route;
   final dynamic parameter;
+  final List<AppRoute> listRoute;
 
-  AppState copyWith(AppRoute? route, [dynamic parameter]) {
+  AppState copyWith({dynamic parameter, List<AppRoute>? listRoute}) {
     return AppState(
-      route: route ?? this.route,
-      parameter: parameter,
-    );
+        parameter: parameter, listRoute: listRoute ?? this.listRoute);
   }
 
   @override
   // TODO: implement props
-  List<Object?> get props => [route, parameter];
+  List<Object?> get props => [parameter, listRoute];
 }

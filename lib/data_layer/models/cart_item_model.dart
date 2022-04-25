@@ -18,4 +18,20 @@ class CartItemModel extends CartItemEntity {
       _$CartItemModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$CartItemModelToJson(this);
+
+  CartItemModel copyWith(
+      {int? id,
+      String? name,
+      String? image,
+      double? price,
+      int? amount,
+      int? paymentStt}) {
+    return CartItemModel(
+        id: id ?? this.id,
+        name: name ?? this.name,
+        image: image ?? this.image,
+        price: price ?? this.price,
+        amount: amount ?? this.amount,
+        paymentStt: paymentStt ?? this.paymentStt);
+  }
 }

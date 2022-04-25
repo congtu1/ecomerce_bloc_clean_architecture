@@ -26,8 +26,12 @@ class HttpUtils {
   static dynamic getResponse(Response? response) {
     switch (response!.statusCode) {
       case 200:
-        final responseJson = json.decode(response.body);
-        return responseJson;
+        if (response.body.isNotEmpty) {
+          final responseJson = json.decode(response.body);
+          return responseJson;
+        } else {
+          return null;
+        }
       case 201:
         throw Exception("Loi 201");
       case 204:

@@ -1,24 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ecomerce_ui/common/http_configs/http_configs.dart';
 import 'package:flutter_ecomerce_ui/config/cus_size.dart';
 import 'package:flutter_ecomerce_ui/config/theme_constants.dart';
+import 'package:flutter_ecomerce_ui/data_layer/models/models.dart';
+import 'package:flutter_ecomerce_ui/presentation/cart/bloc/cart_bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-class CartListItem extends StatelessWidget {
-  const CartListItem({
-    Key? key,
-  }) : super(key: key);
+class CartListTile extends StatelessWidget {
+  const CartListTile({Key? key, required this.item}) : super(key: key);
+  final CartItemModel item;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: 134,
-      margin: const EdgeInsets.symmetric(vertical: 8),
       width: getProportionateScreenWidth(375),
       child: Row(
         children: [
           Expanded(
             flex: 1,
-            child: Image.asset(
-              "assets/images/product1.png",
+            child: Image.network(
+              HttpConfiguration.hostImage + item.image,
               fit: BoxFit.fitHeight,
             ),
           ),
@@ -31,7 +33,7 @@ class CartListItem extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "LAMEREI",
+                    item.name,
                     style: titleStyle,
                   ),
                   Text(
@@ -40,40 +42,50 @@ class CartListItem extends StatelessWidget {
                   ),
                   Row(
                     children: [
-                      Container(
-                        height: 25,
-                        width: 25,
-                        margin: const EdgeInsets.symmetric(horizontal: 10),
-                        decoration: BoxDecoration(
-                            shape: BoxShape.circle, border: Border.all()),
-                        child: Center(
-                          child: Text(
-                            "-",
-                            style: titleStyle,
+                      GestureDetector(
+                        onTap: () {
+                          context.read<CartBloc>().add(CartItemDecrement(item));
+                        },
+                        child: Container(
+                          height: 25,
+                          width: 25,
+                          margin: const EdgeInsets.symmetric(horizontal: 10),
+                          decoration: BoxDecoration(
+                              shape: BoxShape.circle, border: Border.all()),
+                          child: Center(
+                            child: Text(
+                              "-",
+                              style: titleStyle,
+                            ),
                           ),
                         ),
                       ),
                       Text(
-                        "1",
+                        item.amount.toString(),
                         style: titleStyle,
                       ),
-                      Container(
-                        height: 25,
-                        width: 25,
-                        margin: const EdgeInsets.symmetric(horizontal: 10),
-                        decoration: BoxDecoration(
-                            shape: BoxShape.circle, border: Border.all()),
-                        child: Center(
-                          child: Text(
-                            "+",
-                            style: titleStyle,
+                      GestureDetector(
+                        onTap: () {
+                          context.read<CartBloc>().add(CartItemIncrement(item));
+                        },
+                        child: Container(
+                          height: 25,
+                          width: 25,
+                          margin: const EdgeInsets.symmetric(horizontal: 10),
+                          decoration: BoxDecoration(
+                              shape: BoxShape.circle, border: Border.all()),
+                          child: Center(
+                            child: Text(
+                              "+",
+                              style: titleStyle,
+                            ),
                           ),
                         ),
                       ),
                     ],
                   ),
                   Text(
-                    "\$120",
+                    item.price.toString(),
                     style: titleStyle,
                   )
                 ],

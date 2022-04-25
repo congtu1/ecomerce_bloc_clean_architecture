@@ -59,7 +59,7 @@ class LoginCubit extends Cubit<LoginState> {
         };
 
         await _authUseCase.signIn(data);
-        getIt.get<AppBloc>().add(AppEventNavigator(AppRoute.home));
+        getIt.get<AppBloc>().add(AppRoutePush(AppRoute.home));
       } catch (e) {
         showException(
             NavigationService.navigatorKey.currentContext, e.toString());
@@ -81,7 +81,7 @@ class LoginCubit extends Cubit<LoginState> {
         };
 
         await _authUseCase.register(data);
-        getIt.get<AppBloc>().add(AppEventNavigator(AppRoute.home));
+        getIt.get<AppBloc>().add(AppRoutePush(AppRoute.home));
       } catch (e) {
         emit(state.copyWith(
             status: FormzStatus.submissionFailure, errorMessage: e.toString()));

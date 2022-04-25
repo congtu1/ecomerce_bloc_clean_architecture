@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ecomerce_ui/common/injector/injector.dart';
+import 'package:flutter_ecomerce_ui/presentation/app/bloc/app_bloc.dart';
+import 'package:flutter_ecomerce_ui/presentation/app/bloc/app_event.dart';
+import 'package:flutter_ecomerce_ui/presentation/app/bloc/app_state.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class AppBarEx extends AppBar {
@@ -24,7 +28,9 @@ class AppBarEx extends AppBar {
             ),
             IconButton(
               icon: Image.asset("assets/icons/shopping bag.png"),
-              onPressed: () {},
+              onPressed: () {
+                getIt.get<AppBloc>().add(AppRoutePush(AppRoute.cart));
+              },
             )
           ],
         );

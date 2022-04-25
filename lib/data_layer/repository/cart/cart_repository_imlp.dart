@@ -19,24 +19,30 @@ class CartRepositoryImlp implements CartRepository {
   final appRoute = getIt.get<AppBloc>();
 
   @override
+  Stream<List<CartItemModel>> getCartStream() => cartProvider.getCarts();
+
+  @override
   Future<void> addToCart(int idProduct) async {
     try {
       if (authBloc.state.status == AuthenticationStatus.authenticated) {
-        cartProvider.addToCart(idProduct);
-        appRoute.add(AppEventNavigator(AppRoute.cart));
+        await cartProvider.addToCart(idProduct);
+        appRoute.add(AppRoutePush(AppRoute.cart));
       } else {
         Map<String, String> newItem = {
           'idProduct': idProduct.toString(),
           'status': 0.toString()
         };
         localDatabase.newLiteCart(newItem);
-        appRoute.add(AppEventNavigator(AppRoute.login));
+        appRoute.add(AppRoutePush(AppRoute.login));
       }
     } catch (_) {}
   }
 
-  @override
-  Future<List<CartItemModel>> fetchMyCart() {
-    return cartProvider.fetchMyCart();
+  Future<void> incrementAmount(CartItemModel itemModel) async {
+    return cartProvider.incrementAmount(itemModel);
+  }
+
+  Future<void> decrementAmount(CartItemModel itemModel) async {
+    return cartProvider.decrementAmount(itemModel);
   }
 }

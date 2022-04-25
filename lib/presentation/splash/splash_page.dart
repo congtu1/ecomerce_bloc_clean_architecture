@@ -20,7 +20,7 @@ class _SplashPageState extends State<SplashPage> {
   void initState() {
     Timer.periodic(const Duration(seconds: 5), (timer) {
       timer.cancel();
-      return getIt.get<AppBloc>().add(AppEventNavigator(AppRoute.home));
+      return getIt.get<AppBloc>().add(AppRoutePush(AppRoute.home));
     });
     super.initState();
   }

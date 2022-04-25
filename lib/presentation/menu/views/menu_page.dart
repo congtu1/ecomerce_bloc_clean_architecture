@@ -8,6 +8,8 @@ import '../untils.dart';
 class MenuPage extends StatefulWidget {
   const MenuPage({Key? key}) : super(key: key);
 
+  static Page page() => const MaterialPage<void>(child: MenuPage());
+
   @override
   State<MenuPage> createState() => _MenuPageState();
 }
